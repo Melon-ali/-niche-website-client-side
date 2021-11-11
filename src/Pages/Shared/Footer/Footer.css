@@ -1,0 +1,27 @@
+.hover {
+  font-size: 20px;
+  color: gray;
+  transition: 1s;
+}
+.hover:hover {
+  color: rgba(150, 240, 240, 0.5);
+  cursor: pointer;
+}
+.text-color {
+  padding: 40px 0;
+  color: black;
+}
+h2 {
+  color: grey;
+}
+.control {
+  padding: 15px;
+}
+.control-2 {
+  padding: 15px;
+  font-weight: bold;
+}
+.control-2:hover {
+  color: white;
+  background-color: black;
+}

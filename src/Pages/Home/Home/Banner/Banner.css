@@ -1,0 +1,19 @@
+.title {
+  color: #ffe500;
+}
+.btn {
+  background-color: rgb(168, 248, 248);
+}
+.btn:hover {
+  background-color: aqua;
+}
+.right-side {
+  text-align: left;
+  padding: 120px 15px;
+}
+h1 {
+  font-weight: bolder;
+}
+p {
+  font-size: 12px;
+}
