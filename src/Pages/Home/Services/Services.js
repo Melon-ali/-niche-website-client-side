@@ -3,15 +3,14 @@ import Service from '../Service/Service';
 import './Services.css';
 
 const Services = () => {
-
     const [services, setServices] = useState([])
-    useEffect(() => {
-        fetch('fake.json')
+    useEffect(()=> {
+        fetch('http://localhost:5000/products')
         .then(res => res.json())
-        .then(data => setServices(data.slice(0, 6)))
-    })
+        .then(data => setServices(data));
+    } ,[])
     return (
-        <div className="container service-container mt-5">
+        <div className="service-container mt-5">
             {
                 services.map(service => <Service
                     service={service}

@@ -20,15 +20,15 @@ const Footer = () => {
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control className="control text-center" type="email" placeholder="Enter email" />
+                        <Form.Control className="control text-center" type="email" pleaseholder="Enter email" />
                         <button className="form-control control-2">Subscribe</button>                        
                     </Form.Group>
                 </Form>
-                <i class="fab fa-instagram me-4 hover"></i>
-                <i class="fab fa-twitter me-4 hover"></i>
-                <i class="fab fa-facebook me-4 hover"></i>
-                <i class="fab fa-dribbble me-4 hover"></i>
-                <i class="fab fa-linkedin-in hover"></i>
+                <i className="fab fa-instagram me-4 hover"></i>
+                <i className="fab fa-twitter me-4 hover"></i>
+                <i className="fab fa-facebook me-4 hover"></i>
+                <i className="fab fa-dribbble me-4 hover"></i>
+                <i className="fab fa-linkedin-in hover"></i>
             </div>
             <div className="col-lg-4 col-12 mt-lg-0 mt-3 overflow-hidden text-color text-center">
                 <h4 className="mb-3">The Company Name Inc</h4>

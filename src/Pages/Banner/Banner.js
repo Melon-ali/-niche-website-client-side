@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Banner.css';
 
 const Banner = () => {
@@ -20,7 +21,9 @@ const Banner = () => {
                                 <h6>REAL ISTATE</h6>
                                 <h1>Choose <br /> home of <br /> your dream</h1>
                                 <p>We're reimagining how you buy,sell and rent. It's now easier to get into a place you love.So let's do this, together.</p>
-                                <button className="btn">Explore</button>
+                                <Link to={`/services`}>
+                                    <button className="btn">Explore</button>
+                                </Link>
                             </div>
                         </Col>
                     </Row>

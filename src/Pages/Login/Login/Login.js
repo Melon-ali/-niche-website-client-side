@@ -1,17 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Container, Spinner } from 'react-bootstrap';
+import { useLocation, useHistory, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Login.css';
 
 const Login = () => {
-    const {signInUsingGoogle} = useAuth()
+
+    const [loginData, setLoginData] = useState({});
+    const {user, loginUser, isLoading, signInUsingGoogle,  authError} = useAuth();
+
+    const location = useLocation();
+    const redirect_uri = location.state?.from || '/';
+    const history = useHistory();
+
+    const handleOnChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = {...loginData};
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
+    const handleLoginSubmit = e => {
+        loginUser(loginData.email, loginData.password, location, history);
+        e.preventDefault();
+    }
+    const handleSignInUsingGoogle = () => {
+        signInUsingGoogle();
+        history.push(redirect_uri);
+
+    }
     return (
-        <div className="text-center">
-            <div>
+        <Container >
+            <div className="text-center">
                 <h2>Please Login</h2>
-                <div onClick={signInUsingGoogle} className="btn btn-warning">Google Sign In</div>
+                <form onSubmit={handleLoginSubmit} style={{width: '50%', margin:' auto'}}>
+                    <div className="mb-3">
+                        <input type="email" className="form-control"
+                        onBlur={handleOnChange}
+                        aria-describedby="emailHelp"  placeholder="Type Your Email"/>
+                    </div>
+                    <div className="mb-3">
+                        <input type="password" className="form-control"
+                        onBlur={handleOnChange}
+                        placeholder="Type Your Password"/>
+                    </div>
+                    
+                    <button type="submit" className="btn btn-primary">Login</button>
+                    <br />
+                    <NavLink style={{textDecoration: 'none'}} to="/register">Need Account? Signup</NavLink>
+
+                    {isLoading && <Spinner animation="border" variant="info" />}
+                    {user?.email && <div className="alert alert-success" role="alert">
+                    User Created Successfully!
+                    </div>}
+                    {authError && <div className="alert alert-danger" role="alert">
+                    {authError}
+                    </div>}
+                </form>
+                <div onClick={handleSignInUsingGoogle} className="btn btn-warning mt-3">Google Sign In</div>
             </div>
             
-        </div>
+        </Container>
     );
 };
 

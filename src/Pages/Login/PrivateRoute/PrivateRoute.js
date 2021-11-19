@@ -10,18 +10,20 @@ const PrivateRoute = ({ children, ...rest }) => {
     }
     return (
         <Route
-            {...rest}
-            render={({location}) => user.email ? children : <Redirect>
+      {...rest}
+        render={({ location }) =>
+            user.email ? (
+            children
+            ) : (
+            <Redirect
                 to={{
-                    pathname: "/login",
-                    state: { from: location }
+                pathname: "/login",
+                state: { from: location }
                 }}
-            </Redirect>
-
-            }
-        >
-            
-        </Route>
+            />
+            )
+      }
+    />
     );
 };
 
